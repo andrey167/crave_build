@@ -55,6 +55,13 @@ fi
 mkdir -p hardware
 git clone --depth 1 --branch lineage-23.2 https://github.com/LineageOS/android_hardware_xiaomi.git hardware/xiaomi
 
+# Soong
+if [ -d "build/soong" ]; then
+    echo "==> Removing old build/soong..."
+    rm -rf build/soong
+fi
+git clone --depth 1 -b 17 https://github.com/andrey167/android_build_soong.git build/soong
+
 ########################################
 # BUILD SETUP
 ########################################
