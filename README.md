@@ -5,5 +5,11 @@
 crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/LunarisAOSP.sh | bash"
 ```
 
+
+EvolutionX-15
+```bash
+crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/Evo15.sh | bash"
+```
+
 ### Reference
 [FOSSonTop](https://fosson.top/crave/)
