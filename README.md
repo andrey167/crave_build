@@ -11,5 +11,10 @@ EvolutionX-15
 crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/Evo15.sh | bash"
 ```
 
+Project Sakura
+```bash
+crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/sakura.sh | bash"
+```
+
 ### Reference
 [FOSSonTop](https://fosson.top/crave/)
