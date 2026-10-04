@@ -16,5 +16,10 @@ Project Sakura
 crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/sakura.sh | bash"
 ```
 
+Axion
+```bash
+crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/axion.sh | bash"
+```
+
 ### Reference
 [FOSSonTop](https://fosson.top/crave/)
