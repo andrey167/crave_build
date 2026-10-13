@@ -27,5 +27,9 @@ Project Infinity-X
 crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/Infinity.sh | bash"
 ```
 
+DerpFest AOSP
+```bash
+crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/Derpfest17.sh | bash"
+```
 ### Reference
 [FOSSonTop](https://fosson.top/crave/)
