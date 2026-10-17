@@ -66,6 +66,83 @@ if [ -d "build/soong" ]; then
 fi
 git clone https://github.com/andrey167/android_build_soong.git build/soong
 
+
+
+# 1. hardware/qcom-caf/common
+if [ -d "hardware/qcom-caf/common" ]; then
+    echo "==> Removing existing hardware/qcom-caf/common..."
+    rm -rf hardware/qcom-caf/common
+fi
+
+echo "==> Cloning hardware/qcom-caf/common..."
+git clone --depth 1 --branch lineage-23.2 \
+    https://github.com/LineageOS/android_hardware_qcom-caf_common.git \
+    hardware/qcom-caf/common
+
+# 2. Создаём корневой каталог msm8998
+mkdir -p hardware/qcom-caf/msm8998
+
+# 3. msm8998 audio
+if [ -d "hardware/qcom-caf/msm8998/audio" ]; then
+    echo "==> Removing existing msm8998/audio..."
+    rm -rf hardware/qcom-caf/msm8998/audio
+fi
+
+echo "==> Cloning msm8998/audio..."
+git clone --depth 1 --branch lineage-23.2-caf-msm8998 \
+    https://github.com/LineageOS/android_hardware_qcom_audio.git \
+    hardware/qcom-caf/msm8998/audio
+
+# 4. msm8998 display
+if [ -d "hardware/qcom-caf/msm8998/display" ]; then
+    echo "==> Removing existing msm8998/display..."
+    rm -rf hardware/qcom-caf/msm8998/display
+fi
+
+echo "==> Cloning msm8998/display..."
+git clone --depth 1 --branch lineage-23.2-caf-msm8998 \
+    https://github.com/LineageOS/android_hardware_qcom_display.git \
+    hardware/qcom-caf/msm8998/display
+
+# 5. msm8998 media
+if [ -d "hardware/qcom-caf/msm8998/media" ]; then
+    echo "==> Removing existing msm8998/media..."
+    rm -rf hardware/qcom-caf/msm8998/media
+fi
+
+echo "==> Cloning msm8998/media..."
+git clone --depth 1 --branch lineage-23.2-caf-msm8998 \
+    https://github.com/LineageOS/android_hardware_qcom_media.git \
+    hardware/qcom-caf/msm8998/media
+
+
+echo
+echo "==> MSM8998 repositories cloned successfully!"
+echo "==> Repository status:"
+
+git -C hardware/qcom-caf/common branch --show-current
+git -C hardware/qcom-caf/msm8998/audio branch --show-current
+git -C hardware/qcom-caf/msm8998/display branch --show-current
+git -C hardware/qcom-caf/msm8998/media branch --show-current
+
+
+mkdir -p hardware/qcom-caf/msm8998
+
+if [ ! -f hardware/qcom-caf/common/os_pickup.bp ]; then
+    echo "ERROR: common/os_pickup.bp not found"
+    exit 1
+fi
+
+rm -f hardware/qcom-caf/msm8998/Android.bp
+
+ln -s ../common/os_pickup.bp \
+    hardware/qcom-caf/msm8998/Android.bp
+
+test -f hardware/qcom-caf/msm8998/Android.bp
+echo
+echo "==> Done."
+
+
 ########################################
 # BUILD SETUP
 ########################################
