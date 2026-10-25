@@ -6,7 +6,6 @@ Lunaris-AOSP
 crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/LunarisAOSP.sh | bash"
 ```
 
-
 EvolutionX-15
 ```bash
 crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/Evo15.sh | bash"
@@ -32,5 +31,9 @@ Project Infinity-X
 crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/Infinity.sh | bash"
 ```
 
+AICP
+```bash
+crave run --no-patch -- "curl https://raw.githubusercontent.com/andrey167/crave_build/refs/heads/Platina/Aicp.sh | bash"
+```
 ### Reference
 [FOSSonTop](https://fosson.top/crave/)
