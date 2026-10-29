@@ -77,8 +77,41 @@ export KBUILD_HOSTNAME="$BUILD_HOSTNAME"
 
 gk -s
 axionSync
+
+
+# Apply AxionRu Russian translations
+echo "Applying AxionRu translations..."
+
+AXIONRU_URL="https://github.com/andrey167/AxionRu.git"
+AXIONRU_DIR="$(pwd)/.axionru_tmp"
+
+rm -rf "$AXIONRU_DIR"
+git clone --depth=1 "$AXIONRU_URL" "$AXIONRU_DIR" || {
+    echo "ERROR: Failed to clone AxionRu!"
+    rm -rf "$AXIONRU_DIR"
+    exit 1
+}
+
+# Copy translations into Android sources, replacing existing files
+cp -af "$AXIONRU_DIR/." "$(pwd)/"
+
+rm -rf "$AXIONRU_DIR"
+
+echo "AxionRu translations applied successfully!"
+
+# omni
+if [ -d "packages/services/Omnijaws" ]; then
+    echo "==> Removing old packages/services/Omnijaws..."
+    rm -rf packages/services/Omnijaws
+fi
+git clone --depth 1 --branch lineage-23.2 https://github.com/andrey167/android_packages_services_OmniJaws.git packages/services/Omnijaws
+
+
+
 echo "==> Lunching target..."
 axion platina user pico
+
+
 
 echo "==> Cleaning previous build outputs..."
 m installclean
