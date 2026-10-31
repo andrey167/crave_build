@@ -57,6 +57,26 @@ fi
 mkdir -p hardware
 git clone --depth 1 --branch lineage-23.2 https://github.com/LineageOS/android_hardware_xiaomi.git hardware/xiaomi
 
+# Apply LunarisRu Russian translations
+echo "Applying LunarisRu translations..."
+
+LunarisRu_URL="https://github.com/andrey167/LunarisRu.git"
+LunarisRu_DIR="$(pwd)/.LunarisRu_tmp"
+
+rm -rf "$LunarisRu_DIR"
+git clone --depth=1 "$LunarisRu_URL" "$LunarisRu_DIR" || {
+    echo "ERROR: Failed to clone LunarisRu!"
+    rm -rf "$LunarisRu_DIR"
+    exit 1
+}
+
+# Copy translations into Android sources, replacing existing files
+cp -af "$LunarisRu_DIR/." "$(pwd)/"
+
+rm -rf "$LunarisRu_DIR"
+
+echo "LunarisRu translations applied successfully!"
+
 ########################################
 # BUILD SETUP
 ########################################
