@@ -109,7 +109,7 @@ git clone --depth 1 --branch lineage-23.2 https://github.com/andrey167/android_p
 
 
 echo "==> Lunching target..."
-axion platina user pico
+axion platina user va
 
 
 
